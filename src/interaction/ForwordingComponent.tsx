@@ -25,40 +25,42 @@ export default function ForwordingComponent() {
             <Child3 onIncrease={onIncrease} />
         </div>
     )
+}
 
-    function Child1({ count }: Child1Props) {
-        return (
-            <div style={{ height: '200px', backgroundColor: '#ff000050' }}>
-                <h1>{count}</h1>
-            </div>
+interface Child1Props {
+    count: number;
+}
 
+function Child1({ count }: Child1Props) {
+    return (
+        <div style={{ height: '200px', backgroundColor: '#ff000050' }}>
+            <h1>{count}</h1>
+        </div>
+    )
+}
 
-        )
-    }
+function Child2() {
+    return (
+        <div style={{ height: '200px', backgroundColor: '#00ff0050' }}></div>
+    )
+}
 
-    function Child2() {
-        return (
-            <div style={{ height: '200px', backgroundColor: '#00ff0050' }}></div>
-        )
-    }
+interface Child3Props {
+    // count: number;
+    // setCount: React.Dispatch<React.SetStateAction<number>>
+    onIncrease: () => void;
+}
 
-    interface Child3Props {
-        // count: number;
-        // setCount: React.Dispatch<React.SetStateAction<number>>
-        onIncrease: () => void;
-    }
+function Child3({ /*count, setCount*/ onIncrease }: Child3Props) {
 
-    function Child3({ /*count, setCount*/ onIncrease }: Child3Props) {
+    // const onIncrease = () => {
+    // setCount(count + 1);
+    // setCount(count => count + 1);
+    // };
 
-        // const onIncrease = () => {
-        //     // setCount(count + 1);
-        //     setCount(count => count + 1);
-        // };
-
-        return (
-            <div style={{ height: '200px', backgroundColor: '#0000ff50' }}>
-                <button style={{ width: '100%', height: '100%' }} onClick={onIncrease}>+</button>
-            </div>
-        )
-    }
+    return (
+        <div style={{ height: '200px', backgroundColor: '#0000ff50' }}>
+            <button style={{ width: '100%', height: '100%' }} onClick={onIncrease}>+</button>
+        </div>
+    )
 }
