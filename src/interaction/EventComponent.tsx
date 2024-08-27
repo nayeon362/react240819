@@ -4,10 +4,10 @@ import React, { ChangeEvent, KeyboardEvent, MouseEvent } from 'react'
 // - 웹 페이지(컴포넌트)가 사용자와의 상호작용을 받아드려 그것에 대한 처리를 하는 것
 // - React에서는 addEventListener 함수를 사용하지 않고 on이벤트 속성을 사용
 // - on이벤트 속성을 lowerCamelCase를 따름
-// - on이벤트 속성에 콜백 함수를 전달
+// - on이벤트 속성에 콜백 함수를 전달200940100105
 export default function EventComponent() {
 
-    const onClickHandler = () => {
+    const onClickHandler = () => {  
         alert('클릭했습니다!');
     };
 
