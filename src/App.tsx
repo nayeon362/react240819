@@ -1,10 +1,11 @@
-  import React from 'react';
+import React from 'react';
 import Component, { FunctionComponent } from './component/Component';
 import './App.css';
 import CurlyBraces from './component/CurlyBraces';
 import Properties from './component_manage/Properties';
 import ConditionalRender from './component_manage/ConditionalRender';
 import Example2 from './component_manage/example/Example2';
+import ListRender from './component_manage/example/ListRender';
 import EventComponent from './interaction/EventComponent';
 import StateComponent from './interaction/StateComponent';
 import ForwordingComponent from './interaction/ForwordingComponent';
@@ -15,6 +16,7 @@ import { Outlet, Route, Routes, useLocation } from 'react-router';
 import QueryString from './router/QueryString';
 import PathVariable from './router/PathVariable';
 import PathMove from './router/PathMove';
+import Zustand from './zustand/Zustand';
 
 // react-router 패키지:
 // - react의 SPA(Single Page Application)에서 라우팅을 구현하기 위한 라이브러리
@@ -37,16 +39,18 @@ import PathMove from './router/PathMove';
 // - index 속성 : 현재 경로의 기본 라우터로 지정
 
 function Layout() {
-  // useLocation :
-  // - 현재 경로에 대한 객체를 반환하는 react-router 훅 함수
-  const { pathname } = useLocation();
-  
+
+    // useLocation : 
+    // - 현재 경로에 대한 객체를 반환하는 react-router 훅 함수
+    // - pathname : 현재 path
+    const { pathname } = useLocation();
+
     // <Outlet> : 부모 <Route>에 해당 컴포넌트가 element로 등록되었을때
     //            자식 <Route>의 element가 해당 위치에 렌더링되도록 하는 컴포넌트
 
     return (
         <div>
-            <div style={{ height: '100px', backgroundColor: 'red' }}>{path}</div>
+            <div style={{ height: '100px', backgroundColor: 'red' }}>{pathname}</div>
             <Outlet />
             <div style={{ height: '100px', backgroundColor: 'blue' }}></div>
         </div>
@@ -67,6 +71,7 @@ function App() {
                 <Route path='path-variable/:name' element={<PathVariable />} />
                 <Route path='path-move' element={<PathMove />} />
             </Route>
+            <Route path='/zustand' element={<Zustand />} />
             <Route path='*' element={<h1>404!!!</h1>} />
             
             {/* <Properties /> */}
